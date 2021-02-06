@@ -1,0 +1,28 @@
+<div class="product-details">
+  <section>
+    <h3>Beats Solo Wireless Headphones</h3>
+    <div class="text-warning">
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star-half-o"></i>
+    </div>
+  </section>
+
+  <section class={{unless @ifDetails 'h4'}}>
+    <del class="small text-black-50">{{currency @price.original}}</del>
+    <i class="text-danger font-weight-bold">{{currency @price.current}}</i>
+  </section>
+
+  {{#if @ifDetails}}
+  <div>
+    <h6 class="">Color</h6>
+    <div class="product-colors active-{{@color}}">
+      {{#each @colors as |cl|}}
+        <span class="product-color {{concat 'color-' cl.color}}" {{ on "click" (fn @onChangeColor cl.color)}}></span>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+</div>
